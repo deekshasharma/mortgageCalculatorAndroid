@@ -19,7 +19,6 @@ public class MainActivity extends ActionBarActivity {
     private RadioGroup loanRadioGroup;
     private RadioButton selectedRadioButton;
     private CheckBox checkYes;
-    private CheckBox checkNo;
     private Button calculateButton;
     private SeekBar interestSeekBar;
 
@@ -81,8 +80,7 @@ public class MainActivity extends ActionBarActivity {
 
                 // Taxes and Insurance
                 checkYes = (CheckBox) findViewById(R.id.checkYes);
-                checkNo = (CheckBox) findViewById(R.id.checkNo);
-                if(checkYes.isChecked() && (!checkNo.isChecked()))
+                if(checkYes.isChecked())
                 {
 //                    paymentValue.setText(checkYes.getText());
                 }

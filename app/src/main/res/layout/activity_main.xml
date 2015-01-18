@@ -149,16 +149,6 @@
                 android:checked="false"
                 android:layout_marginLeft="40dip" />
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No"
-                android:id="@+id/checkNo"
-                android:layout_column="1"
-                android:checked="false"
-                android:layout_marginLeft="40dip"
-                android:layout_marginRight="120dip" />
-
         </TableRow>
 
         <TableRow
