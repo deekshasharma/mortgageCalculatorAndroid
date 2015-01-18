@@ -92,29 +92,35 @@ public class MainActivity extends ActionBarActivity {
                     taxes = false;
                 }
 
-                float monthlyPayment = getMonthlyPayment(principal,annualInterest,numOfYears,taxes);
+                double monthlyPayment = getMonthlyPayment(principal,annualInterest,numOfYears,taxes);
 
                 // Display value of Monthly payment
-                paymentValue.setText(Float.toString(monthlyPayment));
+                paymentValue.setText(Double.toString(monthlyPayment));
             }
         });
     }
 
-    protected float getMonthlyPayment(float principal, float interest, int numOfYears, boolean taxes) {
+    protected double getMonthlyPayment(float principal, float interest, int numOfYears, boolean taxes) {
         float monthlyInterest = interest / 1200;
         int numOfMonths = numOfYears * 12;
         float taxAmount;
-        float monthlyPayment = 0;
+        double monthlyPayment = 0;
 
-        if (taxes == true) {
-            taxAmount = (1 / 1000) * principal;
-        } else {
+        if (taxes)
+        {
+            taxAmount = (principal/1000);
+            System.out.println("Tax is : "+taxAmount);
+            System.out.println("Principal is : "+principal);
+            System.out.println("Months is: "+numOfMonths);
+            System.out.println("Interest is: "+monthlyInterest);
+        } else
+        {
             taxAmount = 0;
         }
-        if (interest != 0.0) {
-            monthlyPayment = (float) ((principal * (monthlyInterest / 1 - (1 / Math.pow(1 + monthlyInterest, numOfMonths)))) + taxAmount);
+        if (interest > 0.0) {
+            monthlyPayment = (float) ((principal * (monthlyInterest/(1 - (Math.pow(1/(1+monthlyInterest), numOfMonths)))))+taxAmount);
 
-        } else if (interest == 0.0) {
+        } else {
             monthlyPayment = (principal / numOfMonths) + taxAmount;
         }
 
