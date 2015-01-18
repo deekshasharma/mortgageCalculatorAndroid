@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
+    int progressChange = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,27 +24,28 @@ public class MainActivity extends ActionBarActivity {
 
 
         final SeekBar interestRate = (SeekBar) findViewById(R.id.seekBar);
+
         interestRate.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
         {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int progressChange = progress;
+                progressChange = progress;
+                Toast.makeText(getApplicationContext(), "interest rate is "+ progressChange,Toast.LENGTH_SHORT).show();
+//                interestRate
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
 
-        // Calculate button Listener
+        // button Listener
         Button calculateButton = (Button) findViewById(R.id.calculate_button);
         final EditText borrowed = (EditText) findViewById(R.id.amtBorrowed);
         final TextView payment = (TextView) findViewById(R.id.payment);
@@ -51,15 +53,11 @@ public class MainActivity extends ActionBarActivity {
         calculateButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                String amtBorrowed = borrowed.getText().toString();
+                String amtBorrowed = borrowed.getText().toString(); // check this
                 Double borrow = Double.parseDouble(amtBorrowed);
-                payment.setText(borrow.toString());
 
-//                Toast.makeText(getApplicationContext(), "You entered "+amtBorrowed,Toast.LENGTH_SHORT).show();
-
-
+                double total = borrow * progressChange;
+                payment.setText(Double.toString(total));
             }
         });
     }
