@@ -37,7 +37,8 @@
                 android:id="@+id/borrow"
                 android:layout_column="0"
                 android:textSize="15dp"
-                android:paddingTop="50dip" />
+                android:paddingTop="50dip"
+                android:paddingLeft="20dip" />
 
             <EditText
                 android:id="@+id/amtBorrowed"
@@ -81,7 +82,8 @@
                 android:id="@+id/interest"
                 android:layout_column="0"
                 android:textSize="15dp"
-                android:paddingTop="0dip" />
+                android:paddingTop="0dip"
+                android:paddingLeft="20dip" />
 
             <SeekBar
                 android:layout_width="fill_parent"
@@ -109,7 +111,8 @@
                 android:text="Loan term"
                 android:id="@+id/loanTerm"
                 android:textSize="15dp"
-                android:paddingTop="50dip" />
+                android:paddingTop="50dip"
+                android:paddingLeft="20dip" />
 
             <RadioGroup
                 android:id ="@+id/loanRadioGroup"
@@ -157,7 +160,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="15dp"
-                android:paddingTop="50dip" />
+                android:paddingTop="50dip"
+                android:paddingLeft="20dip" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -182,7 +186,8 @@
                 android:text="Monthly Payment"
                 android:id="@+id/payment"
                 android:textSize="15dp"
-                android:paddingTop="50dip" />
+                android:paddingTop="50dip"
+                android:paddingLeft="20dip" />
 
             <TextView
                 android:layout_width="wrap_content"

@@ -40,7 +40,6 @@ public class MainActivity extends ActionBarActivity {
             {
                 progressChange = progress;
                 seekBarValue.setText(String.valueOf(progress) +"%");
-                Toast.makeText(getApplicationContext(),"Interest is: "+ new Float(progressChange),Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -68,7 +67,7 @@ public class MainActivity extends ActionBarActivity {
                 // Amt Borrowed
                 String amtBorrowed = borrowed.getText().toString();
                 float principal = 0;
-                if(borrowed != null)
+                if(amtBorrowed != null && !(amtBorrowed.isEmpty()))
                 {
                     principal = Float.parseFloat(amtBorrowed);
                 }
@@ -102,8 +101,7 @@ public class MainActivity extends ActionBarActivity {
                 double monthlyPayment = getMonthlyPayment(principal,annualInterest,numOfYears,taxes);
 
                 // Display value of Monthly payment
-//                if(borrowed != null)
-                paymentValue.setText(Double.toString(monthlyPayment));
+                paymentValue.setText("Your payment is $"+Double.toString(monthlyPayment));
             }
         });
     }
