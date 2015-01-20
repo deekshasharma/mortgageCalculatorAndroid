@@ -23,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
     private SeekBar interestSeekBar;
     private EditText borrowed;
     private TextView paymentValue;
+    private TextView seekBarValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,14 @@ public class MainActivity extends ActionBarActivity {
 
 
         interestSeekBar = (SeekBar) findViewById(R.id.seekBar);
+        seekBarValue = (TextView) findViewById(R.id.seekBarValue);
 
         interestSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+            {
                 progressChange = progress;
+                seekBarValue.setText(String.valueOf(progress) +"%");
                 Toast.makeText(getApplicationContext(),"Interest is: "+ new Float(progressChange),Toast.LENGTH_LONG).show();
             }
 
@@ -62,9 +66,12 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
 
                 // Amt Borrowed
-                String amtBorrowed = borrowed.getText().toString(); // check this
-                Float principal = Float.parseFloat(amtBorrowed);
-
+                String amtBorrowed = borrowed.getText().toString();
+                float principal = 0;
+                if(borrowed != null)
+                {
+                    principal = Float.parseFloat(amtBorrowed);
+                }
 
                 // Interest rate slider
                 float annualInterest = (float) progressChange;
@@ -95,11 +102,16 @@ public class MainActivity extends ActionBarActivity {
                 double monthlyPayment = getMonthlyPayment(principal,annualInterest,numOfYears,taxes);
 
                 // Display value of Monthly payment
+//                if(borrowed != null)
                 paymentValue.setText(Double.toString(monthlyPayment));
             }
         });
     }
 
+
+    /*
+    This method calculates the monthly payment based on inputs from the user
+     */
     protected double getMonthlyPayment(float principal, float interest, int numOfYears, boolean taxes) {
         float monthlyInterest = interest / 1200;
         int numOfMonths = numOfYears * 12;
@@ -109,10 +121,6 @@ public class MainActivity extends ActionBarActivity {
         if (taxes)
         {
             taxAmount = (principal/1000);
-            System.out.println("Tax is : "+taxAmount);
-            System.out.println("Principal is : "+principal);
-            System.out.println("Months is: "+numOfMonths);
-            System.out.println("Interest is: "+monthlyInterest);
         } else
         {
             taxAmount = 0;
@@ -126,4 +134,5 @@ public class MainActivity extends ActionBarActivity {
 
         return monthlyPayment;
     }
+
 }
