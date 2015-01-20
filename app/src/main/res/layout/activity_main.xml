@@ -13,7 +13,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginLeft="100dip"
         android:layout_marginBottom="20dip"
-        android:layout_marginTop="20dip" />
+        android:layout_marginTop="20dip"
+        android:textStyle="bold" />
 
 
     <TableLayout
@@ -38,7 +39,8 @@
                 android:layout_column="0"
                 android:textSize="15dp"
                 android:paddingTop="50dip"
-                android:paddingLeft="20dip" />
+                android:paddingLeft="20dip"
+                android:textColor="#ff3853ff" />
 
             <EditText
                 android:id="@+id/amtBorrowed"
@@ -54,7 +56,7 @@
         <TableRow
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:paddingTop="0dip"
+            android:paddingTop="50dip"
             android:paddingBottom="0dip"
             android:id="@+id/tableRow2">
 
@@ -83,7 +85,8 @@
                 android:layout_column="0"
                 android:textSize="15dp"
                 android:paddingTop="0dip"
-                android:paddingLeft="20dip" />
+                android:paddingLeft="20dip"
+                android:textColor="#ff3853ff" />
 
             <SeekBar
                 android:layout_width="fill_parent"
@@ -112,7 +115,8 @@
                 android:id="@+id/loanTerm"
                 android:textSize="15dp"
                 android:paddingTop="50dip"
-                android:paddingLeft="20dip" />
+                android:paddingLeft="20dip"
+                android:textColor="#ff3853ff" />
 
             <RadioGroup
                 android:id ="@+id/loanRadioGroup"
@@ -161,7 +165,8 @@
                 android:layout_alignParentStart="true"
                 android:textSize="15dp"
                 android:paddingTop="50dip"
-                android:paddingLeft="20dip" />
+                android:paddingLeft="20dip"
+                android:textColor="#ff3853ff" />
 
             <CheckBox
                 android:layout_width="wrap_content"
@@ -187,7 +192,8 @@
                 android:id="@+id/payment"
                 android:textSize="15dp"
                 android:paddingTop="50dip"
-                android:paddingLeft="20dip" />
+                android:paddingLeft="20dip"
+                android:textColor="#ff3853ff" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -205,8 +211,7 @@
         android:layout_height="wrap_content"
         android:onClick="calculateMortgage"
         android:text="Calculate"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="55dp"></Button>
+        android:layout_below="@+id/tableLayout1"
+        android:layout_centerHorizontal="true"></Button>
 
 </RelativeLayout>
