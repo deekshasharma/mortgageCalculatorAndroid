@@ -39,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
             {
                 progressChange = progress;
-                seekBarValue.setText(String.valueOf(progress) +"%");
+                seekBarValue.setText(String.valueOf(progress) +".0%");
             }
 
             @Override
